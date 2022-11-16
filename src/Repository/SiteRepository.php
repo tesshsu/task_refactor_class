@@ -13,7 +13,7 @@ class SiteRepository implements Repository
      *
      * @return Site
      */
-    public function getById($id)
+    public function getById($id): Site
     {
         // DO NOT MODIFY THIS METHOD
         $generator = Faker\Factory::create();

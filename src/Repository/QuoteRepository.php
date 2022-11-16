@@ -9,7 +9,7 @@ class QuoteRepository implements Repository
      *
      * @return Quote
      */
-    public function getById($id)
+    public function getById($id): Quote
     {
         // DO NOT MODIFY THIS METHOD
         $generator = Faker\Factory::create();
