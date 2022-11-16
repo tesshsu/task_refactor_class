@@ -15,7 +15,7 @@ require_once __DIR__ . '/../src/Repository/QuoteRepository.php';
 require_once __DIR__ . '/../src/Repository/SiteRepository.php';
 require_once __DIR__ . '/../src/TemplateManager.php';
 
-class TemplateManagerTest extends TestCase
+class TemplateManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * Init the mocks
@@ -65,11 +65,11 @@ L'équipe Convelio.com
             ]
         );
 
-        $this->assertEquals('Votre livraison à ' . $expectedDestination->countryName, $message->subject);
+        $this->assertEquals('Votre livraison à ' . $expectedDestination->etCountryName(), $message->getSubject());
         $this->assertEquals("
-Bonjour " . $expectedUser->firstname . ",
+Bonjour " . $expectedUser->getFirstName() . ",
 
-Merci de nous avoir contacté pour votre livraison à " . $expectedDestination->countryName . ".
+Merci de nous avoir contacté pour votre livraison à " . $expectedDestination->etCountryName() . ".
 
 Bien cordialement,
 
