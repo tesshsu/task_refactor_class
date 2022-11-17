@@ -7,7 +7,7 @@ composer.lock: composer.json
 	touch composer.lock
 
 dump-autoload: composer.json
-	$(COMPOSER) composer dump-autoload
+	$(COMPOSER) composer dump-autoload -o
 
 vendor: composer.lock
 	$(COMPOSER) composer install
@@ -15,3 +15,7 @@ vendor: composer.lock
 
 example: vendor
 	$(PHP) php example/example.php
+
+test: vendor
+	$(PHP) php vendor/bin/phpunit --verbose tests
+

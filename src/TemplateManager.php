@@ -1,5 +1,16 @@
 <?php
 
+namespace App;
+
+use App\Context\ApplicationContext;
+use App\Entity\Destination;
+use App\Repository\DestinationRepository;
+use App\Entity\Quote;
+use App\Entity\Site;
+use App\Repository\SiteRepository;
+use App\Entity\Template;
+use App\Entity\User;
+
 class TemplateManager
 {
 

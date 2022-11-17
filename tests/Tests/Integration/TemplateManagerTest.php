@@ -1,13 +1,14 @@
 <?php
 namespace Tests\Integration;
-use ApplicationContext;
-use Destination;
-use DestinationRepository;
+use App\Context\ApplicationContext;
+use App\Entity\Destination;
+use App\Repository\DestinationRepository;
 use PHPUnit\Framework\TestCase;
-use Quote;
-use Template;
-use TemplateManager;
-use User;
+
+use App\Entity\Quote;
+use App\Entity\Template;
+use App\TemplateManager;
+use App\Entity\User;
 
 class TemplateManagerTest extends TestCase
 {
@@ -58,9 +59,9 @@ class TemplateManagerTest extends TestCase
             1,
             'Votre livraison à [quote:destination_name]',
             "
-                    Bonjour [user:first_name],                   
-                    Merci de nous avoir contacté pour votre livraison à [quote:destination_name].                   
-                    Bien cordialement,                  
+                    Bonjour [user:first_name],
+                    Merci de nous avoir contacté pour votre livraison à [quote:destination_name].
+                    Bien cordialement,
                     L'équipe Convelio.com
                     ");
         $templateManager = new TemplateManager();
@@ -73,14 +74,13 @@ class TemplateManagerTest extends TestCase
         );
 
         $this->assertEquals('Votre livraison à ' . $this->expectedDestination->getCountryName(), $message->getSubject());
+
+        print_r($message->getContent());
         $this->assertEquals("
                     Bonjour " . $this->expectedUser->getFirstName() . ",
-                    
                     Merci de nous avoir contacté pour votre livraison à " .  $this->expectedDestination->getCountryName() . ".
-                    
                     Bien cordialement,
-                    
                     L'équipe Convelio.com
-                    ", $message->content);
+                    ", $message->getContent());
     }
 }
