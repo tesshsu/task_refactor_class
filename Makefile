@@ -6,6 +6,9 @@ composer.lock: composer.json
 	$(COMPOSER) composer update --prefer-lowest
 	touch composer.lock
 
+dump-autoload: composer.json
+	$(COMPOSER) composer dump-autoload
+
 vendor: composer.lock
 	$(COMPOSER) composer install
 	touch vendor
