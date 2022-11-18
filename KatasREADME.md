@@ -21,4 +21,7 @@ You should be able seen vendor folder and composer.lock to be created
 - [Step 1]Go to projet root with cygwin if using windows
 - [Step 2]$./vendor/bin/phpunit --verbose tests
 
+![final](https://user-images.githubusercontent.com/3927152/202633600-f1e570e6-eead-4527-98aa-3a9a2854c2c2.png)
+
+
 You should be able seen test result for TemplateManagerTest.php
