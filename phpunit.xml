@@ -7,8 +7,8 @@
          processIsolation="false"
          stopOnFailure="false">
 	<testsuites>
-		<testsuite name="All">
-			<directory>./tests/</directory>
+		<testsuite name="Integration">
+			<directory suffix="Test.php">./tests/Integration</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>

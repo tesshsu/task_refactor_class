@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Context;
+
+use App\Entity\Site;
+use App\Entity\User;
+use App\Helper\SingletonTrait;
+
 class ApplicationContext
 {
     use SingletonTrait;
@@ -20,12 +26,18 @@ class ApplicationContext
         $this->currentUser = new User($faker->randomNumber(), $faker->firstName, $faker->lastName, $faker->email);
     }
 
-    public function getCurrentSite()
+    /**
+     * @return Site
+     */
+    public function getCurrentSite(): Site
     {
         return $this->currentSite;
     }
 
-    public function getCurrentUser()
+    /**
+     * @return User
+     */
+    public function getCurrentUser(): User
     {
         return $this->currentUser;
     }
